@@ -3,13 +3,16 @@ package main
 import "github.com/gin-gonic/gin"
 
 func main() {
-	r := gin.Default()
+	router := gin.Default()
 
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "berhasil akses home",
-		})
+	router.GET("/", GetHome)
+
+	router.Run()
+}
+
+func GetHome(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"status":   "Berhasil",
+		"messages": "Berhasil Tampil Home",
 	})
-
-	r.Run()
 }

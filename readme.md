@@ -1,1 +1,1 @@
-Help people interested in this repository understand your project by adding a README.
+https://sekolahkoding.com/kelas/webserver-go-dengan-gin-dan-gorm#videoList

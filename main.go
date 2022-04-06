@@ -7,6 +7,7 @@ func main() {
 
 	router.GET("/", GetHome)
 	router.GET("/artikel/:judul", GetArtikel)
+	router.POST("/artikel", PostArtikel)
 
 	router.Run()
 }
@@ -23,5 +24,16 @@ func GetArtikel(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"status":   "Berhasil",
 		"messages": judul,
+	})
+}
+
+func PostArtikel(c *gin.Context) {
+	judul := c.PostForm("judul")
+	desc := c.PostForm("desc")
+
+	c.JSON(200, gin.H{
+		"status":   "Berhasil",
+		"messages": desc,
+		"title":    judul,
 	})
 }

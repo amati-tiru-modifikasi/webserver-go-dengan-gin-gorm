@@ -5,6 +5,17 @@ import "github.com/gin-gonic/gin"
 func main() {
 	router := gin.Default()
 
+	// ENDPOINT API V1
+	v1 := router.Group("/api/v1")
+	{
+		artikel := v1.Group("/artikel")
+		{
+			artikel.GET("/", GetHome)
+			artikel.GET("/:judul", GetArtikel)
+			artikel.POST("/", PostArtikel)
+		}
+	}
+
 	router.GET("/", GetHome)
 	router.GET("/artikel/:judul", GetArtikel)
 	router.POST("/artikel", PostArtikel)
